@@ -52,7 +52,7 @@
             <customer_register_success>
                 <observers>
                     <customer_domain_group>
-                        <class>AWS_CustomerGroup/observer</class>
+                        <class>aws_customerGroup/observer</class>
                         <method>addDomainGroup</method>
                     </customer_domain_group>
                 </observers>
@@ -71,7 +71,7 @@
 
     </frontend>
 
-    <admin>
+    <!--<admin>
         <routers>
             <adminhtml>
                 <args>
@@ -81,7 +81,7 @@
                 </args>
             </adminhtml>
         </routers>
-    </admin>
+    </admin>-->
 
     <!--<adminhtml>
         <layout>

@@ -1342,6 +1342,8 @@ class Mage_Core_Model_App
         }
         return $this;
     }
+    
+    
 
     /**
      * Performs non-existent observer method calls protection
