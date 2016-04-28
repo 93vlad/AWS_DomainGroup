@@ -47,6 +47,18 @@
     </global>
 
     <frontend>
+
+        <events>
+            <customer_register_success>
+                <observers>
+                    <customer_domain_group>
+                        <class>AWS_CustomerGroup/observer</class>
+                        <method>addDomainGroup</method>
+                    </customer_domain_group>
+                </observers>
+            </customer_register_success>
+        </events>
+
         <routers>
             <aws_customerGroup>
                 <use>standard</use>
@@ -56,6 +68,7 @@
                 </args>
             </aws_customerGroup>
         </routers>
+
     </frontend>
 
     <admin>
