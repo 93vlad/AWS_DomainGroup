@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <Aws_CustomerGroup>
+            <version>1.0.0</version>
+        </Aws_CustomerGroup>
+    </modules>
+
+    <global>
+
+        <models>
+            <aws_customerGroup>
+                <class>Aws_CustomerGroup_Model</class>
+                <resourceModel>aws_customerGroup_resource</resourceModel>
+            </aws_customerGroup>
+            <aws_customerGroup_resource>
+                <class>Aws_CustomerGroup_Model_Resource</class>
+                <entities>
+                    <domainGroup>
+                        <table>aws_customerGroup_domainGroup</table>
+                    </domainGroup>
+                </entities>
+            </aws_customerGroup_resource>
+        </models>
+
+        <blocks>
+            <aws_customerGroup>
+                <class>Aws_CustomerGroup_Block</class>
+            </aws_customerGroup>
+        </blocks>
+
+        <helpers>
+            <aws_customerGroup>
+                <class>Aws_CustomerGroup_Helper</class>
+            </aws_customerGroup>
+        </helpers>
+
+        <resources>
+            <customerGroup_setup>
+                <setup>
+                    <module>Aws_CustomerGroup</module>
+                </setup>
+            </customerGroup_setup>
+        </resources>
+
+    </global>
+
+    <frontend>
+        <routers>
+            <aws_customerGroup>
+                <use>standard</use>
+                <args>
+                    <module>Aws_CustomerGroup</module>
+                    <frontName>aws</frontName>
+                </args>
+            </aws_customerGroup>
+        </routers>
+    </frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Aws_CustomerGroup before="Mage_Adminhtml">Aws_CustomerGroup_Adminhtml</Aws_CustomerGroup>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <!--<adminhtml>
+        <layout>
+            <updates>
+                <aws_customerGroup>
+                    <file>aws/customerGroup.xml</file>
+                </aws_customerGroup>
+            </updates>
+        </layout>
+    </adminhtml>-->
+
+</config>

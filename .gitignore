@@ -1,0 +1,6 @@
+/media/**
+/var/cache/**
+/var/session/**
+/var/log/**
+/app/etc/local.xml
+/.idea/**

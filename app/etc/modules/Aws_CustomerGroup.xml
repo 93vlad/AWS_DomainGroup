@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Aws_CustomerGroup>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Aws_CustomerGroup>
+    </modules>
+</config>
