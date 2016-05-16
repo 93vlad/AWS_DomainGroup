@@ -6,7 +6,7 @@
             <children>
                 <domen translate="title" module="aws_customerGroup">
                     <sort_order>20</sort_order>
-                    <title>Customer Domen Group</title>
+                    <title>Customer Domain Group</title>
                     <action>adminhtml/domain/</action>
                 </domen>
             </children>

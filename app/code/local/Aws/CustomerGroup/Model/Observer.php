@@ -2,7 +2,8 @@
 
 class AWS_CustomerGroup_Model_Observer
 {
-    public function addDomainGroup($observer){
+    public function addDomainGroup($observer)
+    {
         $customer = $observer->getCustomer();
         Mage::register('isSecureArea', true);
         $tempDelete = Mage::getModel('customer/customer')->load($customer->getId());
