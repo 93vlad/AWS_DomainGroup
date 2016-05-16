@@ -59,38 +59,18 @@
             </customer_register_success>
         </events>
 
-        <routers>
-            <aws_customerGroup>
-                <use>standard</use>
-                <args>
-                    <module>Aws_CustomerGroup</module>
-                    <frontName>aws</frontName>
-                </args>
-            </aws_customerGroup>
-        </routers>
-
     </frontend>
 
-    <!--<admin>
+    <admin>
         <routers>
             <adminhtml>
                 <args>
                     <modules>
-                        <Aws_CustomerGroup before="Mage_Adminhtml">Aws_CustomerGroup_Adminhtml</Aws_CustomerGroup>
+                        <aws_customerGroup before="Mage_Adminhtml">Aws_CustomerGroup_Adminhtml</aws_customerGroup>
                     </modules>
                 </args>
             </adminhtml>
         </routers>
-    </admin>-->
-
-    <!--<adminhtml>
-        <layout>
-            <updates>
-                <aws_customerGroup>
-                    <file>aws/customerGroup.xml</file>
-                </aws_customerGroup>
-            </updates>
-        </layout>
-    </adminhtml>-->
+    </admin>
 
 </config>

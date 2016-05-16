@@ -1,31 +1,16 @@
 <?xml version="1.0"?>
 <config>
 
-    <!--<menu>
-        <sales>
+    <menu>
+        <customer>
             <children>
-                <foo_bar_baz translate="title" module="foo_bar">
-                    <title>Baz</title>
-                    <action>adminhtml/baz</action>
-                </foo_bar_baz>
+                <domen translate="title" module="aws_customerGroup">
+                    <sort_order>20</sort_order>
+                    <title>Customer Domen Group</title>
+                    <action>adminhtml/domain/</action>
+                </domen>
             </children>
-        </sales>
+        </customer>
     </menu>
-
-    <acl>
-        <resources>
-            <admin>
-                <children>
-                    <sales>
-                        <children>
-                            <foo_bar_baz>
-                                <title>Baz</title>
-                            </foo_bar_baz>
-                        </children>
-                    </sales>
-                </children>
-            </admin>
-        </resources>
-    </acl>-->
 
 </config>

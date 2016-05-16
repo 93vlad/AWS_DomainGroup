@@ -4,6 +4,5 @@ class Aws_CustomerGroup_IndexController extends Mage_Core_Controller_Front_Actio
 {
     public function indexAction()
     {
-        echo 1;
     }
 }
