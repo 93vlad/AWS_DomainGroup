@@ -11,10 +11,11 @@ $table = $installer->getConnection()
     ->addColumn('entity_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'identity'  => true,
         'primary'   => true,
-    ), 'Id')
-    ->addColumn('domen', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => false,
-    ), 'Domen')
+    ), 'Id')
+    ->addColumn('domain', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
+        'nullable'  => false,
+    ), 'Domain')
     ->addColumn('allowed_pages', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => true,
     ), 'Allowed-pages')

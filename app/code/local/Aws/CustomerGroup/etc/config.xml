@@ -3,7 +3,7 @@
 
     <modules>
         <Aws_CustomerGroup>
-            <version>1.0.0</version>
+            <version>0.0.1</version>
         </Aws_CustomerGroup>
     </modules>
 

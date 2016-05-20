@@ -31,9 +31,9 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Grid extends Mage_Adminhtml_
             'index'  => 'entity_id',
         ));
 
-        $this->addColumn('domen', array(
+        $this->addColumn('domain', array(
             'header' => $helper->__('Domain'),
-            'index'  => 'domen',
+            'index'  => 'domain',
         ));
 
         $this->addColumn('allowed_pages', array(

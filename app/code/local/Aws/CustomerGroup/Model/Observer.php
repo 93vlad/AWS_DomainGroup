@@ -12,15 +12,15 @@ class AWS_CustomerGroup_Model_Observer
         Mage::unregister('isSecureArea');
         $domen = substr(strstr($customer->getEmail(), '@'), 1);
         $groupTable = Mage::getResourceModel('aws_customerGroup/domainGroup_collection')
-            ->addFieldToSelect('domen')
+            ->addFieldToSelect('domain')
             ->load();
         $domens = array();
         foreach($groupTable as $item){
-            $domens[] = $item->getDomen();
+            $domens[] = $item->getDomain();
         }
         if(!in_array($domen, $domens)) {
             Mage::getModel('aws_customerGroup/domainGroup')
-                ->setData('domen', $domen)
+                ->setData('domain', $domen)
                 ->setData('status', 0)
                 ->save();
         }
