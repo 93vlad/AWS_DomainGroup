@@ -44,6 +44,17 @@
             </customerGroup_setup>
         </resources>
 
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <customer_before_load_page>
+                        <class>aws_customerGroup/observer</class>
+                        <method>checkAccessPage</method>
+                    </customer_before_load_page>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+
     </global>
 
     <frontend>
