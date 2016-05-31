@@ -15,6 +15,7 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
 
     public function editAction()
     {
+        $this->_title($this->__('Edit Domain Group'));
         $productId = $this->getRequest()->getParam('id');
         $domainGroup = Mage::getModel('aws_customerGroup/domainGroup');
         if ($productId) {
@@ -29,5 +30,13 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
         $this->loadLayout();
         $editDomain = $this->getLayout()->createBlock('aws_customerGroup/adminhtml_domainGroup_edit');
         $this->_addContent($editDomain)->renderLayout();
+    }
+
+    public function saveAction()
+    {
+        $postData = $this->getRequest()->getPost();
+        $data = Mage::register('current_domainGroup');
+        $this->_redirect('*/*/');
+        return;
     }
 }

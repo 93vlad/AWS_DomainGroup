@@ -5,28 +5,72 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Edit_Form
 {
     protected function _prepareForm()
     {
+
+        $helper     = Mage::helper('aws_customerGroup');
+        $pages      = Mage::getResourceModel('cms/page_collection')->load();
+        $groups     = Mage::getResourceModel('customer/group_collection')->load();
+        $domainGroup = Mage::registry('current_domainGroup');
+
         $form = new Varien_Data_Form(array(
             'id'        => 'edit_form',
-            'action'    => $this->getUrl(
-                'aws_customerGroup_admin/domain/edit',
-                array(
+            'action'    => $this->getUrl('*/domain/save', array(
                     '_current' => true,
-                    'continue' => 0,
+                    'continue' => 1,
                 )
             ),
             'method' => 'post',
         ));
 
-        $form->setUseContainer(true);
-        $this->setForm($form);
-
         $fieldset = $form->addFieldset(
             'general',
             array(
-                'legend' => $this->__('Brand Details')
+                'legend' => $domainGroup->getData('domain'),
             )
         );
 
-        $domainGroup = Mage::getModel('aws_customerGroup/domainGroup');
+        $fieldset->addField('status', 'select', array(
+            'name'      => 'status',
+            'label'     => $helper->__('Status'),
+            'title'     => $helper->__('Status'),
+            'required'  => true,
+            'options'   => array(
+                1 => $helper->__('Enabled'),
+                0 => $helper->__('Disabled'),
+            ),
+        ));
+
+        $fieldset->addField('allowed_pages', 'multiselect', array(
+            'name'      => 'allowed_pages',
+            'label'     => $helper->__('Allowed Pages'),
+            'title'     => $helper->__('Allowed Pages'),
+            'required'  => true,
+            'values'    => $this->_prepareCollection($pages, 'title'),
+        ));
+
+        $fieldset->addField('assign_group', 'multiselect', array(
+            'name'      => 'assign_group',
+            'label'     => $helper->__('Assign Group'),
+            'title'     => $helper->__('Assign Group'),
+            'required'  => true,
+            'values'    => $this->_prepareCollection($groups, 'customer_group_code'),
+        ));
+
+        $form->setValues($domainGroup->getData());
+        $form->setUseContainer(true);
+        $this->setForm($form);
+
+        return parent::_prepareForm();
+    }
+
+    protected function _prepareCollection($collection, $title)
+    {
+        $array = array();
+        foreach($collection as $item){
+            $array[] = array(
+                'label' => $item->getData($title),
+                'value' => $item->getId(),
+            );
+        }
+        return $array;
     }
 }
