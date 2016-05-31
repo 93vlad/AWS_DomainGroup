@@ -28,6 +28,11 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Edit_Form
             )
         );
 
+        $fieldset->addField('entity_id', 'hidden', array(
+            'name'      => 'domain_id',
+            'value'     => $domainGroup->getId()
+        ));
+
         $fieldset->addField('status', 'select', array(
             'name'      => 'status',
             'label'     => $helper->__('Status'),

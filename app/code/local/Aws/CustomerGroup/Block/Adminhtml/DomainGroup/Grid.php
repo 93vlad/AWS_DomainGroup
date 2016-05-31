@@ -39,11 +39,13 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Grid extends Mage_Adminhtml_
         $this->addColumn('allowed_pages', array(
             'header' => $helper->__('Allowed Pages'),
             'index'  => 'allowed_pages',
+            'renderer' => 'Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Render',
         ));
 
         $this->addColumn('assign_group', array(
             'header' => $helper->__('Assign Group'),
             'index'  => 'assign_group',
+            'renderer' => 'Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Render',
         ));
 
         $this->addColumn('status', array(

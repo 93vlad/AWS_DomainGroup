@@ -19,7 +19,7 @@ $table = $installer->getConnection()
     ->addColumn('allowed_pages', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => true,
     ), 'Allowed-pages')
-    ->addColumn('assign_group', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
+    ->addColumn('assign_group', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => true,
     ), 'Assigned-group')
     ->addColumn('status', Varien_Db_Ddl_Table::TYPE_TINYINT, null, array(
