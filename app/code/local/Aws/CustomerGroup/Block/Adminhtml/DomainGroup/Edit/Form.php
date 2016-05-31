@@ -13,7 +13,7 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Edit_Form
 
         $form = new Varien_Data_Form(array(
             'id'        => 'edit_form',
-            'action'    => $this->getUrl('*/domain/save', array(
+            'action'    => $this->getUrl('*/*/save', array(
                     '_current' => true,
                     'continue' => 1,
                 )

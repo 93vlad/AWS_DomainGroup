@@ -43,7 +43,15 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
             }
             $domainGroup->setData($key, $value);
         }
-        $domainGroup->save();
+        $domainGroup->save(); // TODO wrap it in try catch blocks
+        $this->_redirect('*/*/');
+        return;
+    }
+
+    public function deleteAction()
+    {
+        $id = $this->getRequest()->getParam('id');
+        Mage::getModel('aws_customerGroup/domainGroup')->load($id)->delete(); // TODO wrap it in try catch blocks
         $this->_redirect('*/*/');
         return;
     }
