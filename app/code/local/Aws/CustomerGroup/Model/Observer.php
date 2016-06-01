@@ -5,11 +5,6 @@ class AWS_CustomerGroup_Model_Observer
     public function addDomainGroup($observer)
     {
         $customer = $observer->getCustomer();
-        Mage::register('isSecureArea', true); // TODO remove code about delete customer
-        $tempDelete = Mage::getModel('customer/customer')->load($customer->getId());
-        $tempDelete->setIsDeleteable(true);
-        $tempDelete->delete();
-        Mage::unregister('isSecureArea');
         $domain = substr(strstr($customer->getEmail(), '@'), 1);
         $domainTable = Mage::getModel('aws_customerGroup/domainGroup')
             ->load($domain, 'domain');
@@ -19,8 +14,6 @@ class AWS_CustomerGroup_Model_Observer
                 ->setData('status', 0)
                 ->save();
         }
-        Mage::app()->getResponse()->setRedirect(Mage::getUrl('customer/account/create'))->sendResponse(); // TODO remove redirect
-        exit;
     }
 
     public function checkAccessPage($observer)

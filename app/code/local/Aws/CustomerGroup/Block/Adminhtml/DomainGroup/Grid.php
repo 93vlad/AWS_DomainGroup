@@ -52,7 +52,7 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Grid extends Mage_Adminhtml_
             'header'    => $helper->__('Status'),
             'index'     => 'status',
             'type'      => 'options',
-            'options'   => $this->_toOptionArray(array('Disabled', 'Enabled'), $helper),
+            'options'   => $helper->toOptionArray(array('Disabled', 'Enabled')),
         ));
 
         return parent::_prepareColumns();
@@ -66,13 +66,5 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Grid extends Mage_Adminhtml_
     public function getRowUrl($item)
     {
         return $this->getUrl('*/*/edit', array('id' => $item->getEntityId()));
-    }
-
-    protected function _toOptionArray(array $values, $helper){
-        $array = array();
-        foreach($values as $value){
-            $array[] = $helper->__($value);
-        }
-        return $array;
     }
 }

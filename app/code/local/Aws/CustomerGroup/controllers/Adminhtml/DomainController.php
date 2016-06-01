@@ -28,8 +28,7 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
         }
         Mage::register('current_domainGroup', $domainGroup);
         $this->loadLayout();
-//        $editDomain = $this->getLayout()->createBlock('aws_customerGroup/adminhtml_domainGroup_edit');
-        $this->/*_addContent($editDomain)->*/renderLayout();
+        $this->renderLayout();
     }
 
     public function saveAction()
@@ -43,7 +42,12 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
             }
             $domainGroup->setData($key, $value);
         }
-        $domainGroup->save(); // TODO wrap it in try catch blocks
+        try {
+            $domainGroup->save();
+        } catch (Exception $e) {
+            $domainGroup->setTypeId(Mage_Catalog_Model_Product_Type::DEFAULT_TYPE);
+            Mage::logException($e);
+        }
         $this->_redirect('*/*/');
         return;
     }
@@ -51,7 +55,13 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
     public function deleteAction()
     {
         $id = $this->getRequest()->getParam('id');
-        Mage::getModel('aws_customerGroup/domainGroup')->load($id)->delete(); // TODO wrap it in try catch blocks
+        $domainGroup = Mage::getModel('aws_customerGroup/domainGroup')->load($id);
+        try {
+            $domainGroup->delete();
+        } catch (Exception $e) {
+            $domainGroup->setTypeId(Mage_Catalog_Model_Product_Type::DEFAULT_TYPE);
+            Mage::logException($e);
+        }
         $this->_redirect('*/*/');
         return;
     }

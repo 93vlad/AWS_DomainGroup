@@ -38,10 +38,7 @@ class Aws_CustomerGroup_Block_Adminhtml_DomainGroup_Edit_Form
             'label'     => $helper->__('Status'),
             'title'     => $helper->__('Status'),
             'required'  => true,
-            'options'   => array(
-                1 => $helper->__('Enabled'),
-                0 => $helper->__('Disabled'),
-            ),
+            'options'   => $helper->toOptionArray(array('Disabled', 'Enabled')),
         ));
 
         $fieldset->addField('allowed_pages', 'multiselect', array(
