@@ -28,8 +28,8 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
         }
         Mage::register('current_domainGroup', $domainGroup);
         $this->loadLayout();
-        $editDomain = $this->getLayout()->createBlock('aws_customerGroup/adminhtml_domainGroup_edit');
-        $this->_addContent($editDomain)->renderLayout();
+//        $editDomain = $this->getLayout()->createBlock('aws_customerGroup/adminhtml_domainGroup_edit');
+        $this->/*_addContent($editDomain)->*/renderLayout();
     }
 
     public function saveAction()
@@ -37,7 +37,7 @@ class Aws_CustomerGroup_Adminhtml_DomainController extends Mage_Adminhtml_Contro
         $postData = $this->getRequest()->getPost();
         $domainGroup = Mage::getModel('aws_customerGroup/domainGroup')->load($postData['domain_id']);
         $newData = array_slice($postData, 2, null, true);
-        foreach($newData as $key=>$value){
+        foreach($newData as $key => $value){
             if(is_array($value)){
                 $value = serialize($value);
             }

@@ -84,4 +84,14 @@
         </routers>
     </admin>
 
+    <adminhtml>
+        <layout>
+            <updates>
+                <aws_customerGroup>
+                    <file>aws/customerGroup.xml</file>
+                </aws_customerGroup>
+            </updates>
+        </layout>
+    </adminhtml>
+
 </config>

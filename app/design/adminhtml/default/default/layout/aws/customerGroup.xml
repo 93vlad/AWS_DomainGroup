@@ -1,1 +1,9 @@
 <?xml version="1.0"?>
+
+<layout>
+    <adminhtml_domain_edit>
+        <reference name="content">
+            <block type="aws_customerGroup/adminhtml_domainGroup_edit" name="aws_customerGroup_edit"/>
+        </reference>
+    </adminhtml_domain_edit>
+</layout>
