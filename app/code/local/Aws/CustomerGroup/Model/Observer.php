@@ -29,9 +29,9 @@ class AWS_CustomerGroup_Model_Observer
             return;
         }
         $page = Mage::app()->getRequest()->getParams('page_id');
-        $allowedpages = unserialize($item->getAllowedPages());
+        $allowedpages = unserialize($domainTable->getAllowedPages());
         if(!in_array($page['page_id'], $allowedpages) && !is_null($page['page_id'])){
-            $customerSession->addError('Sorry, you don\'t have permission to go that page');
+            $customerSession->addError('Sorry, you don\'t have permission to access that page');
             session_write_close(); // TODO don't forget see into, why messages not send without this code!!!!
             Mage::app()->getResponse()->setRedirect(Mage::getUrl('cms/index'));
         }
